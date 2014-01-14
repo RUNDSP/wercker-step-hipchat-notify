@@ -13,6 +13,11 @@ if [ ! -n "$WERCKER_HIPCHAT_NOTIFY_FROM_NAME" ]; then
   exit 1
 fi
 
+if [ "$WERCKER_GIT_BRANCH" != "master"]; then
+  echo "Skipping..."
+  return 0
+fi
+
 if [ ! -n "$WERCKER_HIPCHAT_NOTIFY_FAILED_MESSAGE" ]; then
 	if [ ! -n "$DEPLOY" ]; then
 		export WERCKER_HIPCHAT_NOTIFY_FAILED_MESSAGE="<a href="$WERCKER_APPLICATION_URL">$WERCKER_APPLICATION_OWNER_NAME/$WERCKER_APPLICATION_NAME</a>: <a href="$WERCKER_BUILD_URL">build</a> of $WERCKER_GIT_BRANCH by $WERCKER_STARTED_BY failed."
