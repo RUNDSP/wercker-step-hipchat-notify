@@ -13,7 +13,7 @@ if [ ! -n "$WERCKER_HIPCHAT_NOTIFY_FROM_NAME" ]; then
   exit 1
 fi
 
-if [ "$WERCKER_GIT_BRANCH" != "master"]; then
+if [ "$WERCKER_GIT_BRANCH" != "master" ]; then
   echo "Skipping..."
   return 0
 fi
