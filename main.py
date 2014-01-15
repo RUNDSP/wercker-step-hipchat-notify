@@ -15,6 +15,12 @@ notify = '0'
 if str(sys.argv[6]) == 'true':
     notify = '1'
 
+print "token: " + token
+print "token: " + room_id
+print "token: " + message
+print "token: " + color
+print "notify: " + notify
+
 hipster = hipchat.HipChat(token=token)
 
 hipster.method('rooms/message', method='POST', parameters={'room_id': room_id, 'from': from_name, 'message': message, 'color': color, 'notify': notify})
